@@ -14,16 +14,25 @@ class SensorController extends Controller
      */
     public function index(Request $request)
     {
+        echo 'asdad';exit;
        dd(SensorData::all());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SensorRequest $request)
+    public function store(Request $request)
     {
-        
-       SensorData::create($request->all());
+        dd($request->all());
+        if(!empty($request->get('data')))
+        {
+            SensorData::insert($request->get('data'));
+        }
+        else
+        {
+            SensorData::create($request->all());
+        }
+       
        return response()->json(['message' => 'Sensor data created successfully']);
     }
 
