@@ -22,7 +22,6 @@ class SensorController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         if(!empty($request->get('data')))
         {
             SensorData::insert($request->get('data'));
