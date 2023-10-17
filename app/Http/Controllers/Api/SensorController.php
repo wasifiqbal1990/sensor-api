@@ -14,7 +14,6 @@ class SensorController extends Controller
      */
     public function index(Request $request)
     {
-        echo 'asdad';exit;
        dd(SensorData::all());
     }
 
